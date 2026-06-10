@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samsung Account</title>
+<link rel="stylesheet" href="css/create.css">
+</head>
+
+<body>
+<div class="container">
+    <div class="titulo">
+        <h1>Samsung Account</h1>
+    </div>
+
+    <div class="logo">
+        <img src="Imagens/logo4.png" alt="Samsung">
+        <h2>Criar sua conta</h2>
+    </div>
+
+    <form id="cadastro">
+        <div class="form-group">
+            <input type="text" id="nome" placeholder="Digite seu nome" required pattern="[A-Za-zÀ-ÿ\s]+" autofocus>
+        </div>
+
+        <div class="form-group">
+            <input type="text" id="sobrenome" placeholder="Digite seu sobrenome" required pattern="[A-Za-zÀ-ÿ\s]+">
+        </div>
+
+        <div class="data">
+            <h3>Data de nascimento</h3>
+            <div class="data-grid">
+                <input type="number" min="1" max="31" id="dia" placeholder="Dia" required>
+                <input type="number" min="1" max="12" id="mes" placeholder="Mês" required>
+                <input type="number" min="1900" max="2026" id="ano" placeholder="Ano" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input type="email" id="email" placeholder="exemplo@email.com" required>
+        </div>
+
+        <div class="form-group">
+            <input type="password" id="senha" placeholder="Crie uma senha (mín. 6 caracteres)" minlength="6" required>
+        </div>
+
+        <div class="form-group">
+            <input type="password" id="confirmar" placeholder="Repita a senha" required>
+        </div>
+
+        <!-- Mensagens de feedback -->
+        <div id="mensagem" style="color:red; font-weight:bold; margin-top:10px;"></div>
+
+        <div class="botoes">
+            <button type="button" onclick="window.location.href='login.html'">Voltar</button>
+            <button type="submit" id="btnFinalizar">Finalizar</button>
+        </div>
+    </form>
+</div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
+import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyC0V2t-XvpTq_2r_Z0YLc9_-3YF_1c4Mo0",
+  authDomain: "samsung-cd18d.firebaseapp.com",
+  projectId: "samsung-cd18d",
+  storageBucket: "samsung-cd18d.firebasestorage.app",
+  messagingSenderId: "582826463476",
+  appId: "1:582826463476:web:063e0b28af2d2626d24ea1",
+  measurementId: "G-Y3GJJTRXQ0"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+document.getElementById("cadastro").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const nome = document.getElementById("nome").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const senha = document.getElementById("senha").value;
+  const confirmar = document.getElementById("confirmar").value;
+
+  if(senha !== confirmar){
+    document.getElementById("mensagem").textContent = "❌ Senhas diferentes!";
+    return;
+  }
+
+  try {
+    const userCredential = await createUserWithEmailAndPassword(auth, email, senha);
+    const user = userCredential.user;
+
+    await setDoc(doc(db, "usuarios", user.uid), {
+      nome,
+      email
+    });
+
+    document.getElementById("mensagem").style.color = "green";
+    document.getElementById("mensagem").textContent = "✅ Conta criada!";
+    window.location.href = "show.html"; // 🔑 redireciona
+  } catch(err){
+    document.getElementById("mensagem").style.color = "red";
+    document.getElementById("mensagem").textContent = "❌ Erro: " + err.message;
+  }
+});
+</script>
+</body>
+</html>

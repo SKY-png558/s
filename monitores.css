@@ -1,0 +1,174 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f3f3f3;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 50px;
+    background: #0077ff;
+    gap: 10px;
+}
+
+header p{
+    color: rgb(253, 251, 251);
+    font-weight: bold;
+    font-size: 18px;
+}
+
+nav{
+    margin-left: 250px;
+}
+nav ul{
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+nav a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover{
+    color: #dcdcdc;
+}
+
+header div{
+    display: flex;
+    gap: 20px;
+}
+
+header div img{
+    width: 30px;
+    cursor: pointer;
+}
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 50px;
+    background: #0066ff;
+}
+.acoes{
+    display:flex;
+    gap:25px;
+    align-items:center;
+}
+
+.acoes a{
+    color:white;
+    font-size:28px;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.acoes a:hover{
+    transform:scale(1.15);
+    color:#d9e8ff;
+}
+.logo{
+    font-size:40px;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+.menu-btn{
+    position:absolute;
+    left:20px;
+    top:25px;
+    font-size:30px;
+    cursor:pointer;
+}
+
+.titulo{
+    text-align:center;
+    margin:20px 0;
+    font-size:32px;
+}
+
+.produtos{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:40px;
+    padding:20px;
+}
+
+.card{
+    background:#fff;
+    border-radius:25px;
+    padding:20px;
+    text-align:center;
+    box-shadow:0 3px 10px rgba(0,0,0,.08);
+}
+
+.card img{
+    width:100%;
+    max-width:280px;
+    border-radius:10px;
+}
+
+.card h3{
+    margin-top:15px;
+    font-size:22px;
+}
+
+.preco{
+    color:#0078ff;
+    font-size:28px;
+    font-weight:bold;
+    margin-top:15px;
+}
+
+.desconto{
+    font-size:18px;
+    color:#333;
+}
+
+.aviso{
+    max-width:1100px;
+    margin:50px auto;
+    background:#ddd;
+    border-radius:25px;
+    padding:25px;
+    color:#444;
+    line-height:1.6;
+}
+
+footer{
+    width: 100%;
+    background: #e9e9e9;
+    border-top: 4px solid #0077ff;
+    padding: 35px 60px;
+    margin-top: 60px;
+}
+
+footer p{
+    color: #444;
+    font-size: 13px;
+    line-height: 2;
+    text-align: center;
+    max-width: 1400px;
+    margin: auto;
+}
+@media(max-width:768px){
+    .produtos{
+        grid-template-columns:1fr;
+    }
+
+    .logo{
+        font-size:28px;
+    }
+}
