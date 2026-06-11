@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil - Samsung</title>
+    <link rel="stylesheet" href="css/show.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div class="container-show">
+    <!-- Header -->
+    <div class="header-show">
+        <div class="header-content">
+            <img src="logo2.png" alt="Samsung" class="logo-header">
+            <h1>Meu Perfil Samsung</h1>
+            <button class="btn-sair" onclick="fazerLogout()">🚪 Sair</button>
+        </div>
+    </div>
+
+    <!-- Loading State -->
+    <div id="loading" class="loading-show" style="display: none;">
+        <div class="spinner"></div>
+        <p>Carregando seus dados...</p>
+    </div>
+
+    <!-- Main Content -->
+    <div id="conteudo" style="display: none;">
+        <!-- Informações do Usuário -->
+        <div class="card-profile">
+            <div class="profile-header">
+                <div class="avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="profile-info">
+                    <h2 id="nomeUsuario">Carregando...</h2>
+                    <p id="emailUsuario">Carregando...</p>
+                    <p id="telefoneUsuario" style="display: none;"></p>
+                </div>
+                <button class="btn-editar" onclick="habilitarEdicao()">
+                    ✏️ Editar
+                </button>
+            </div>
+        </div>
+
+        <!-- Dados Pessoais -->
+        <div class="card-info">
+            <h3><i class="fas fa-id-card"></i> Dados Pessoais</h3>
+            <div class="info-grid">
+                <div class="info-item">
+                    <label>Nome Completo</label>
+                    <p id="infoNome">-</p>
+                </div>
+                <div class="info-item">
+                    <label>E-mail</label>
+                    <p id="infoEmail">-</p>
+                </div>
+                <div class="info-item">
+                    <label>Telefone</label>
+                    <p id="infoTelefone">-</p>
+                </div>
+                <div class="info-item">
+                    <label>Data de Nascimento</label>
+                    <p id="infoData">-</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Histórico de Compras -->
+        <div class="card-info">
+            <h3><i class="fas fa-shopping-bag"></i> Histórico de Compras</h3>
+            <div id="historicoCompras" class="compras-list">
+                <p class="vazio">Nenhuma compra realizada ainda</p>
+            </div>
+        </div>
+
+        <!-- Wishlist -->
+        <div class="card-info">
+            <h3><i class="fas fa-heart"></i> Minha Wishlist</h3>
+            <div id="wishlist" class="wishlist-list">
+                <p class="vazio">Nenhum item na wishlist</p>
+            </div>
+        </div>
+
+        <!-- Configurações -->
+        <div class="card-info">
+            <h3><i class="fas fa-cog"></i> Configurações</h3>
+            <div class="configuracoes">
+                <label class="config-item">
+                    <input type="checkbox" id="notificacoes" checked>
+                    <span>Receber notificações por e-mail</span>
+                </label>
+                <label class="config-item">
+                    <input type="checkbox" id="newsletter" checked>
+                    <span>Inscrever-se na newsletter</span>
+                </label>
+                <label class="config-item">
+                    <input type="checkbox" id="publicidade">
+                    <span>Receber ofertas personalizadas</span>
+                </label>
+            </div>
+            <button class="btn btn-salvar" onclick="salvarConfiguracoes()">💾 Salvar Configurações</button>
+        </div>
+
+        <!-- Ações Principais -->
+        <div class="card-info card-acoes">
+            <h3><i class="fas fa-tools"></i> Ações da Conta</h3>
+            <div class="acoes-grid">
+                <button class="btn btn-acao" onclick="alterarSenha()">
+                    🔑 Alterar Senha
+                </button>
+                <button class="btn btn-acao" onclick="deletarConta()">
+                    🗑️ Deletar Conta
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Error State -->
+    <div id="erro" class="erro-show" style="display: none;">
+        <h2>❌ Erro ao carregar dados</h2>
+        <p id="erroMsg"></p>
+        <button class="btn btn-primario" onclick="window.location.href='login.html'">
+            Voltar ao Login
+        </button>
+    </div>
+</div>
+
+<script type="module" src="Js/auth-show.js"></script>
+
+</body>
+</html>

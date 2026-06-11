@@ -1,0 +1,387 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: #f5f7fa;
+    min-height: 100vh;
+}
+
+.container-show {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+.header-show {
+    background: linear-gradient(135deg, #0078ff 0%, #00a8ff 100%);
+    color: white;
+    padding: 30px 0;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 120, 255, 0.2);
+}
+
+.header-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo-header {
+    width: 60px;
+    height: 60px;
+}
+
+.header-show h1 {
+    font-size: 28px;
+    flex: 1;
+}
+
+.btn-sair {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 2px solid white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-sair:hover {
+    background: white;
+    color: #0078ff;
+}
+
+/* Loading State */
+.loading-show {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.spinner {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #0078ff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-show p {
+    color: #666;
+    font-size: 16px;
+}
+
+/* Profile Card */
+.card-profile {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #0078ff 0%, #00a8ff 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    color: white;
+}
+
+.profile-info {
+    flex: 1;
+}
+
+.profile-info h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.profile-info p {
+    color: #666;
+    font-size: 14px;
+    margin: 3px 0;
+}
+
+.btn-editar {
+    background: #0078ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-editar:hover {
+    background: #0066dd;
+    transform: translateY(-2px);
+}
+
+/* Info Cards */
+.card-info {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.card-info h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-info h3 i {
+    color: #0078ff;
+    font-size: 24px;
+}
+
+/* Info Grid */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.info-item {
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    border-left: 4px solid #0078ff;
+}
+
+.info-item label {
+    display: block;
+    color: #999;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.info-item p {
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Compras List */
+.compras-list,
+.wishlist-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.vazio {
+    text-align: center;
+    color: #999;
+    padding: 30px;
+    font-size: 14px;
+}
+
+.compra-item,
+.wishlist-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    border-left: 4px solid #28a745;
+}
+
+.compra-info,
+.wishlist-info {
+    flex: 1;
+}
+
+.compra-info h4,
+.wishlist-info h4 {
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.compra-info p,
+.wishlist-info p {
+    color: #666;
+    font-size: 13px;
+}
+
+.compra-preco,
+.wishlist-preco {
+    font-weight: 600;
+    color: #0078ff;
+    font-size: 16px;
+}
+
+/* Configurações */
+.configuracoes {
+    margin-bottom: 20px;
+}
+
+.config-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    margin-bottom: 10px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.config-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.config-item span {
+    color: #555;
+    font-size: 14px;
+}
+
+.btn-salvar {
+    width: 100%;
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-salvar:hover {
+    background: #218838;
+    transform: translateY(-2px);
+}
+
+/* Ações */
+.card-acoes {
+    background: linear-gradient(135deg, #fff5f5 0%, #fff9f0 100%);
+    border-left: 4px solid #ff6b6b;
+}
+
+.acoes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.btn-acao {
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-acao:hover {
+    background: #cc5555;
+    transform: translateY(-2px);
+}
+
+/* Botões Gerais */
+.btn {
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-primario {
+    background: #0078ff;
+    color: white;
+}
+
+.btn-primario:hover {
+    background: #0066dd;
+    transform: translateY(-2px);
+}
+
+/* Erro */
+.erro-show {
+    background: white;
+    border-radius: 15px;
+    padding: 60px 40px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.erro-show h2 {
+    color: #ff6b6b;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.erro-show p {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header-show h1 {
+        font-size: 22px;
+    }
+
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .acoes-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,112 +1,94 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Samsung Account</title>
-<link rel="stylesheet" href="css/create.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Conta - Samsung Account</title>
+    <link rel="stylesheet" href="css/create.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
 <div class="container">
     <div class="titulo">
-        <h1>Samsung Account</h1>
+        <h1>📝 Samsung Account</h1>
     </div>
 
-    <div class="logo">
-        <img src="Imagens/logo4.png" alt="Samsung">
+    <div class="logo-section">
+        <img src="logo2.png" alt="Samsung" class="logo">
         <h2>Criar sua conta</h2>
+        <p>Junte-se à comunidade Samsung</p>
     </div>
+
+    <!-- Loading Spinner -->
+    <div id="loading" class="spinner" style="display: none;"></div>
 
     <form id="cadastro">
-        <div class="form-group">
-            <input type="text" id="nome" placeholder="Digite seu nome" required pattern="[A-Za-zÀ-ÿ\s]+" autofocus>
-        </div>
-
-        <div class="form-group">
-            <input type="text" id="sobrenome" placeholder="Digite seu sobrenome" required pattern="[A-Za-zÀ-ÿ\s]+">
-        </div>
-
-        <div class="data">
-            <h3>Data de nascimento</h3>
-            <div class="data-grid">
-                <input type="number" min="1" max="31" id="dia" placeholder="Dia" required>
-                <input type="number" min="1" max="12" id="mes" placeholder="Mês" required>
-                <input type="number" min="1900" max="2026" id="ano" placeholder="Ano" required>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" placeholder="Seu nome" required>
+            </div>
+            <div class="form-group">
+                <label for="sobrenome">Sobrenome</label>
+                <input type="text" id="sobrenome" placeholder="Seu sobrenome" required>
             </div>
         </div>
 
         <div class="form-group">
-            <input type="email" id="email" placeholder="exemplo@email.com" required>
+            <label for="email">E-mail</label>
+            <input type="email" id="email" placeholder="seu@email.com" required>
         </div>
 
         <div class="form-group">
-            <input type="password" id="senha" placeholder="Crie uma senha (mín. 6 caracteres)" minlength="6" required>
+            <label for="telefone">Telefone (opcional)</label>
+            <input type="tel" id="telefone" placeholder="(11) 99999-9999">
+        </div>
+
+        <div class="data">
+            <label>Data de nascimento</label>
+            <div class="data-grid">
+                <input type="number" min="1" max="31" id="dia" placeholder="DD" required>
+                <input type="number" min="1" max="12" id="mes" placeholder="MM" required>
+                <input type="number" min="1900" max="2026" id="ano" placeholder="AAAA" required>
+            </div>
         </div>
 
         <div class="form-group">
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" placeholder="Mínimo 6 caracteres" minlength="6" required>
+            <small>✓ Mínimo 6 caracteres | ✓ Letras e números</small>
+        </div>
+
+        <div class="form-group">
+            <label for="confirmar">Confirmar Senha</label>
             <input type="password" id="confirmar" placeholder="Repita a senha" required>
         </div>
 
+        <div class="checkbox-group">
+            <input type="checkbox" id="termos" required>
+            <label for="termos">Concordo com os <a href="#">Termos de Serviço</a></label>
+        </div>
+
         <!-- Mensagens de feedback -->
-        <div id="mensagem" style="color:red; font-weight:bold; margin-top:10px;"></div>
+        <div id="mensagem" class="mensagem"></div>
 
         <div class="botoes">
-            <button type="button" onclick="window.location.href='login.html'">Voltar</button>
-            <button type="submit" id="btnFinalizar">Finalizar</button>
+            <button type="button" class="btn btn-secundario" onclick="window.location.href='login.html'">
+                ← Voltar
+            </button>
+            <button type="submit" class="btn btn-primario" id="btnFinalizar">
+                ✓ Criar Conta
+            </button>
+        </div>
+
+        <div class="login-link">
+            Já tem conta? <a href="login.html">Fazer login</a>
         </div>
     </form>
 </div>
 
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
-import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-firestore.js";
+<script type="module" src="Js/auth-create.js"></script>
 
-const firebaseConfig = {
-  apiKey: "AIzaSyC0V2t-XvpTq_2r_Z0YLc9_-3YF_1c4Mo0",
-  authDomain: "samsung-cd18d.firebaseapp.com",
-  projectId: "samsung-cd18d",
-  storageBucket: "samsung-cd18d.firebasestorage.app",
-  messagingSenderId: "582826463476",
-  appId: "1:582826463476:web:063e0b28af2d2626d24ea1",
-  measurementId: "G-Y3GJJTRXQ0"
-};
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
-
-document.getElementById("cadastro").addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  const nome = document.getElementById("nome").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const senha = document.getElementById("senha").value;
-  const confirmar = document.getElementById("confirmar").value;
-
-  if(senha !== confirmar){
-    document.getElementById("mensagem").textContent = "❌ Senhas diferentes!";
-    return;
-  }
-
-  try {
-    const userCredential = await createUserWithEmailAndPassword(auth, email, senha);
-    const user = userCredential.user;
-
-    await setDoc(doc(db, "usuarios", user.uid), {
-      nome,
-      email
-    });
-
-    document.getElementById("mensagem").style.color = "green";
-    document.getElementById("mensagem").textContent = "✅ Conta criada!";
-    window.location.href = "show.html"; // 🔑 redireciona
-  } catch(err){
-    document.getElementById("mensagem").style.color = "red";
-    document.getElementById("mensagem").textContent = "❌ Erro: " + err.message;
-  }
-});
-</script>
 </body>
 </html>

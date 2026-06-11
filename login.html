@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Samsung Account</title>
-<link rel="stylesheet" href="css/login.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Samsung Account</title>
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
 <div class="container">
     <div class="faixa">
-        <h1>Samsung Account</h1>
+        <h1>🔐 Samsung Account</h1>
     </div>
 
     <div class="login">
-        <img class="logo" src="Imagens/logo4.png" alt="Samsung">
+        <img class="logo" src="logo2.png" alt="Samsung">
 
         <div class="texto1">
             Bem-vindo(a) ao seu mundo Samsung.
@@ -24,42 +25,53 @@
             Entre para começar
         </div>
 
-        <div class="campo">
-            <input type="email" id="email" placeholder="E-mail">
-        </div>
+        <!-- Loading Spinner -->
+        <div id="loading" class="spinner" style="display: none;"></div>
 
-        <div class="campo">
-            <input type="password" id="senha" placeholder="Senha">
-        </div>
+        <div id="loginForm">
+            <div class="campo">
+                <i class="fas fa-envelope"></i>
+                <input type="email" id="email" placeholder="E-mail" required>
+            </div>
 
-        <div class="lembrar">
-            <input type="checkbox" id="check-lembrar">
-            <label style="display:inline; font-size:18px; font-weight:bold;" for="check-lembrar">Lembrar senha</label>
-        </div>
+            <div class="campo">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="senha" placeholder="Senha" required>
+            </div>
 
-        <div class="botoes">
-            <button class="btn" onclick="window.location.href='create.html'">
-                Criar conta
+            <div class="lembrar">
+                <input type="checkbox" id="check-lembrar">
+                <label for="check-lembrar">Lembrar senha</label>
+            </div>
+
+            <!-- Mensagem de Erro -->
+            <div id="mensagem" class="mensagem"></div>
+
+            <div class="botoes">
+                <button type="button" class="btn btn-secundario" onclick="window.location.href='create.html'">
+                    ➕ Criar conta
+                </button>
+
+                <button type="button" class="btn btn-primario" onclick="fazerLogin()">
+                    ➜ Avançar
+                </button>
+            </div>
+
+            <div class="divisor">ou</div>
+
+            <button type="button" class="google" onclick="googleLogin()">
+                <img src="https://cdn-icons-png.flaticon.com/512/300/300221.png" alt="Google">
+                Entrar com Google
             </button>
 
-            <!-- Agora chama a função login() -->
-            <button class="btn" onclick="login()">
-                Avançar
-            </button>
+            <div class="rodape">
+                <a href="#">Esqueceu a senha?</a> | <a href="#">Suporte</a>
+            </div>
         </div>
-
-        <button class="google" onclick="googleLogin()">
-            <img src="https://cdn-icons-png.flaticon.com/512/300/300221.png" alt="Google">
-            Entrar com Google
-        </button>
     </div>
 </div>
 
-<script type="module">
-import { login, googleLogin } from "./Js/auth.js";
-window.login = login;
-window.googleLogin = googleLogin;
-</script>
+<script type="module" src="Js/auth-login.js"></script>
 
 </body>
 </html>
