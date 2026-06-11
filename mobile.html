@@ -1,144 +1,92 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Samsung Mobile</title>
-    <link rel="stylesheet" href="css/monitores.css">
+    <title>Celulares - Samsung</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Css/carrinho-novo.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
     <header>
-        <div class="logo">SAMSUNG</div>
+        <div class="logo">
+            <img src="logo2.png" alt="Logo da Samsung">
+            <p>BRASIL • 1986-2026</p>
+        </div>
         <nav>
-        <ul>
-            <li><a href="monitores.html">MONITORES</a></li>
-            <li><a href="eletrodomestico.html">ELETRODOMÉSTICO</a></li>
-            <li><a href="acessorios.html">ACESSÓRIOS</a></li>
-            <li><a href="index.html">HOME</a></li>
-        </ul>
+            <ul>
+                <li><a href="index.html">INÍCIO</a></li>
+                <li><a href="mobile.html">MOBILE</a></li>
+                <li><a href="eletrodomestico.html">ELETRODOMÉSTICO</a></li>
+                <li><a href="acessorios.html">ACESSÓRIOS</a></li>
+                <li><a href="monitores.html">MONITORES</a></li>
+            </ul>
         </nav>
         <div class="acoes">
-    <a href="carrinho.html" title="Carrinho">
-        <i class="fa-solid fa-cart-shopping"></i>
-    </a>
+            <a href="carrinho-novo.html" title="Carrinho" style="position: relative;">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="contador-carrinho" style="display: none;">0</span>
+            </a>
+            <a href="login.html" title="Login">
+                <i class="fa-solid fa-user"></i>
+            </a>
+        </div>
+    </header>
 
-    <a href="login.html" title="Login">
-        <i class="fa-solid fa-user"></i>
-    </a>
-</div>
-</header>
+    <section class="promocoes" style="padding: 40px 0;">
+        <div class="linha-topo"></div>
 
-<h1 class="titulo">Mobile Samsung</h1>
+        <div class="titulo">
+            <h1>📱 CELULARES SAMSUNG</h1>
+        </div>
 
-<section class="produtos">
+        <div class="descricao">
+            <p>Confira nossa seleção de celulares Samsung com as tecnologias mais avançadas e designs inovadores. Temos as melhores ofertas para você!</p>
+        </div>
 
-    <div class="card">
-        <img src="Imagens/mobile1.webp" alt="">
-        <h3>Celular Samsung Galaxy Z Fold7 1TB</h3>
-        <div class="preco">R$ 7.789,05</div>
-        <div class="desconto">à vista(5% de desconto)</div>
-        <button class="btn-adicionar" 
-        data-id="123" 
-        data-nome="Produto X" 
-        data-preco="99.90">
-  Adicionar ao carrinho
-</button>
+        <div class="container-produtos" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+            <div class="card">
+                <img src="03M3VIOLETA2.webp" alt="Galaxy S26 Ultra">
+                <p>SAMSUNG GALAXY S26<br>5G ULTRA 512 GB</p>
+                <div class="preco">R$ 7.499,00</div>
+                <button class="btn-adicionar" data-id="mobile-1" data-nome="Samsung Galaxy S26 Ultra 512GB" data-preco="7499.00">🛒 Adicionar ao Carrinho</button>
+            </div>
+            <div class="card">
+                <img src="57.avif" alt="Galaxy A57">
+                <p>SAMSUNG GALAXY A57<br>128 GB</p>
+                <div class="preco">R$ 1.899,00</div>
+                <button class="btn-adicionar" data-id="mobile-2" data-nome="Samsung Galaxy A57 128GB" data-preco="1899.00">🛒 Adicionar ao Carrinho</button>
+            </div>
+            <div class="card">
+                <img src="37.webp" alt="Galaxy A37">
+                <p>SAMSUNG GALAXY A37<br>5G 128 GB</p>
+                <div class="preco">R$ 1.599,00</div>
+                <button class="btn-adicionar" data-id="mobile-3" data-nome="Samsung Galaxy A37 5G 128GB" data-preco="1599.00">🛒 Adicionar ao Carrinho</button>
+            </div>
+            <div class="card">
+                <img src="s25.webp" alt="Galaxy S25">
+                <p>SAMSUNG GALAXY S25<br>512 GB</p>
+                <div class="preco">R$ 5.999,00</div>
+                <button class="btn-adicionar" data-id="mobile-4" data-nome="Samsung Galaxy S25 512GB" data-preco="5999.00">🛒 Adicionar ao Carrinho</button>
+            </div>
+        </div>
 
-<div id="carrinho"></div>
-    </div>
+        <div class="benefits" style="margin-top: 40px;">
+            <span>🚚 Frete Grátis</span>
+            <span>🏷️ Até 15% OFF</span>
+            <span>🛡️ Dados Protegidos</span>
+        </div>
+    </section>
 
-    <div class="card">
-        <img src="Imagens/mobile2.webp" alt="">
-        <h3>Celular Samsung Galaxy S25 Edge 5G</h3>
-        <div class="preco">R$ 8.549,05</div>
-        <div class="desconto">à vista (5% de desconto)</div>
-        <button class="btn-adicionar" 
-        data-id="456" 
-        data-nome="Produto Y" 
-        data-preco="149.90">
-  Adicionar ao carrinho
-</button>
+    <footer>
+        <p>
+            Copyright © 1995-2026 Samsung. Todos os direitos reservados.<br/>
+            Samsung Eletrônica da Amazônia LTDA.<br/>
+            Formas de pagamento aceitas: Pix e Cartão de crédito.
+        </p>
+    </footer>
 
-<div id="carrinho"></div>
-    </div>
-
-    <div class="card">
-        <img src="Imagens/mobile3.webp" alt="">
-        <h3>Galaxy A07</h3>
-        <div class="preco">R$ 1.234,05</div>
-        <div class="desconto">à vista (5% de desconto)</div>
-        <button class="btn-adicionar" 
-        data-id="789" 
-        data-nome="Produto Z" 
-        data-preco="199.90">
-  Adicionar ao carrinho
-</button>
-
-<div id="carrinho"></div>
-    </div>
-
-    <div class="card">
-        <img src="Imagens/mobile4.webp" alt="">
-        <h3>Galaxy A17</h3>
-        <div class="preco">R$ 1.661,55</div>
-        <div class="desconto">à vista (8% de desconto)</div>
-        <button class="btn-adicionar" 
-        data-id="101" 
-        data-nome="Produto W" 
-        data-preco="299.90">
-  Adicionar ao carrinho
-</button>
-
-<div id="carrinho"></div>
-    </div>
-
-    <div class="card">
-        <img src="Imagens/mobile5.webp" alt="">
-        <h3>Celular Samsung Galaxy S24</h3>
-        <div class="preco">R$ 5.199,00</div>
-        <div class="desconto">à vista (5% de desconto)</div>
-        <button class="btn-adicionar" 
-        data-id="102" 
-        data-nome="Produto V" 
-        data-preco="879.90">
-  Adicionar ao carrinho
-</button>
-
-<div id="carrinho"></div>
-    </div>
-
-    <div class="card">
-        <img src="Imagens/mobile6.jpg" alt="">
-        <h3>Galaxy S25 FE</h3>
-        <div class="preco">R$ 4.221,16</div>
-        <div class="desconto">à vista (27% de desconto)</div>
-        <button class="btn-adicionar" 
-        data-id="104" 
-        data-nome="Produto T" 
-        data-preco="422.16">
-  Adicionar ao carrinho
-</button>
-
-<div id="carrinho"></div>
-    </div>
-
-</section>
-
-<div class="aviso">
-    *Imagem ilustrativa. Alguns recursos de IA exigem login na conta Samsung.<br>
-    *Produtos vendidos separadamente.<br>
-    *A disponibilidade dos produtos pode variar conforme a região.
-</div>
-
-<footer>
-    Copyright © 1995-2026 Samsung. Todos os direitos reservados.<br><br>
-
-    Samsung Eletrônica da Amazônia LTDA.<br>
-    Manaus/AM - Brasil.<br><br>
-
-    Formas de pagamento aceitas: Pix e Cartão de Crédito.
-</footer>
-
+    <script src="Js/carrinho.js"></script>
 </body>
 </html>

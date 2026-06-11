@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho - Samsung</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Css/carrinho-novo.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo2.png" alt="Logo da Samsung">
+            <p>BRASIL • 1986-2026</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">INÍCIO</a></li>
+                <li><a href="mobile.html">MOBILE</a></li>
+                <li><a href="eletrodomestico.html">ELETRODOMÉSTICO</a></li>
+                <li><a href="acessorios.html">ACESSÓRIOS</a></li>
+                <li><a href="monitores.html">MONITORES</a></li>
+            </ul>
+        </nav>
+        <div class="acoes">
+            <a href="carrinho-novo.html" title="Carrinho" style="position: relative;">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="contador-carrinho" style="display: none;">0</span>
+            </a>
+            <a href="login.html" title="Login">
+                <i class="fa-solid fa-user"></i>
+            </a>
+        </div>
+    </header>
+
+    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 40px 20px;">
+        <h1 style="margin-bottom: 30px; color: #333;">🛒 Seu Carrinho</h1>
+
+        <div style="display: grid; grid-template-columns: 1fr 300px; gap: 30px;">
+            <!-- Itens do Carrinho -->
+            <div class="carrinho-itens">
+                <!-- Será preenchido por JavaScript -->
+            </div>
+
+            <!-- Resumo do Carrinho -->
+            <div class="resumo-carrinho" style="display: none; height: fit-content; position: sticky; top: 20px;">
+                <!-- Será preenchido por JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>
+            Copyright © 1995-2026 Samsung. Todos os direitos reservados.<br/>
+            Samsung Eletrônica da Amazônia LTDA.<br/>
+            Formas de pagamento aceitas: Pix e Cartão de crédito.
+        </p>
+    </footer>
+
+    <script src="Js/carrinho.js"></script>
+</body>
+</html>
